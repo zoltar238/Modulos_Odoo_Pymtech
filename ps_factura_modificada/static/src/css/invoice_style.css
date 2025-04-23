@@ -1,0 +1,8 @@
+.vertical-text {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

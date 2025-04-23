@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_boxed_inherit" inherit_id="web.external_layout_boxed">
+        <!-- Modificar la estructura de filas para que ocupe todo el ancho -->
+        <xpath expr="//div[hasclass('row')][hasclass('mb8')]" position="attributes">
+            <attribute name="class">row mb8 w-100</attribute>
+            <attribute name="style">display: flex
+            ;
+                align-items: center
+            ;</attribute>
+        </xpath>
+
+        <!-- Mantener la columna del logo con su tamaño adecuado -->
+        <xpath expr="//div[hasclass('col-4')]" position="attributes">
+            <attribute name="class">col-3</attribute>
+        </xpath>
+
+        <!-- Ajustar la columna de contenido para estar al lado del logo -->
+        <xpath expr="//div[hasclass('col-8')]" position="attributes">
+            <attribute name="class">col-9</attribute>
+        </xpath>
+
+        <!-- Barra de color naranja en el inicio del documento-->
+        <xpath expr="//div[contains(@t-attf-class, 'header o_company_#{company.id}_layout')]" position="inside">
+            <div style="background-color: #FF9933; width: 100%; height: 20px; position: absolute; top: 0; left: 0;"></div>
+        </xpath>
+
+        <!-- Barra de color naranja en el inicio del documento-->
+        <xpath expr="//div[contains(@t-attf-class, 'header o_company_#{company.id}_layout')]" position="inside">
+            <div style="background-color: rgba(128, 128, 128, 0.2); width: 100%; height: 17%; position: absolute; top: 0; left: 0;"></div>
+        </xpath>
+
+        <!-- Añadir display flex para mostrar los campos en fila -->
+        <xpath expr="//div[hasclass('d-flex')]" position="attributes">
+            <attribute name="style">display: flex
+            ;
+                flex-direction: row
+            ;
+                justify-content: space-between
+            ;</attribute>
+        </xpath>
+
+        <!-- Añadir listas de campos personalizados con verificación segura de 'o' -->
+        <xpath expr="//div[@name='company_address']" position="replace">
+            <!-- Contenedor flex para las dos listas -->
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <!-- Lista izquierda - Datos de la empresa -->
+                <div style="text-align: left;">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li><strong>ROZAS Y TAPADOS ALBA S.L.</strong></li>
+                        <li>Ayudas Albañilería, Taladros y Cortes en Hormigón</li>
+                        <li>B83938373</li>
+                        <li>C/Los Alpes 14, Local 2</li>
+                        <li>28922 Alcorcón (Madrid)</li>
+                        <li>Tlf 680 418 402/ 629 099 089</li>
+                        <li>info@rozasytapadosalba.es</li>
+                    </ul>
+                </div>
+
+                <!-- Lista derecha - Datos de la factura -->
+                <div style="text-align: right;">
+                    <ul style="list-style-type: none; padding-right: 0;">
+                        <li>FACTURA</li>
+                        <!-- Fecha de la factura -->
+                        <li>Fecha</li>
+                        <hr style="margin: 10px 0; border: 0; height: 1px; background-color: #A3D289;"/>
+                        <li t-if="o and o.invoice_date"><t t-esc="o.invoice_date" t-options='{"widget": "date"}'/></li>
+                        <!-- Número de factura -->
+                        <li>Nº de factura</li>
+                        <hr style="margin: 10px 0; border: 0; height: 1px; background-color: #A3D289;"/>
+                        <li t-if="o and o.name"><t t-esc="o.name"/></li>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Eliminación de la línea vertical que separa al documento de su pie de página-->
+        <xpath expr="//div[hasclass('o_footer_content')]" position="attributes">
+            <attribute name="class">o_footer_content row pt-2</attribute>
+        </xpath>
+
+        <!-- Barra de color naranja después del pie de página-->
+        <xpath expr="//div[hasclass('text-end')]" position="after">
+            <div style="background-color: #FF9933; width: 100%; height: 20px; margin-top: 10px;"></div>
+        </xpath>
+    </template>
+</odoo>

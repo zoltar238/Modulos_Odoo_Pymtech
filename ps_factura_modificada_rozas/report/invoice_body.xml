@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+
+        <!-- Envolver toda la información del cliente (dirección + NIF/CIF) con borde naranja -->
+        <xpath expr="//t[@t-set='address']" position="before">
+            <div style="border: 2px solid #FF9933; padding: 10px; border-radius: 4px; background-color: #FFF8F0;">
+            </div>
+        </xpath>
+
+        <xpath expr="//td[@name='td_quantity']" position="after">
+            <td name="td_entregado" class="text-end text-nowrap">
+                <span t-field="line.x_entregado"/>
+            </td>
+            <td name="td_total" class="text-end text-nowrap">
+                <span t-field="line.x_total"/>
+            </td>
+        </xpath>
+        <xpath expr="//th[@name='th_quantity']" position="after">
+            <th name="th_entregado" class="text-end">
+                <span>Total Certificado</span>
+            </th>
+            <th name="th_total" class="text-end">
+                <span>Total Pedido</span>
+            </th>
+        </xpath>
+    </template>
+</odoo>

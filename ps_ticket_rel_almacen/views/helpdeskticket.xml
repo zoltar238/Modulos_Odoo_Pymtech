@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_helpdesk_ticket_form_inherit_warehouse" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form.inherit.warehouse</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='channel_id']" position="after">
+                    <field name="x_warehouse"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_helpdesk_ticket_tree_inherit_warehouse" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.tree.inherit.warehouse</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="x_warehouse" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
