@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_template_report_invoice_normal">
+        <t t-call="web.external_layout">
+            <t t-set="model" t-value="'account.move'"/>
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                <div class="d-flex justify-content-between mb-1" style="width: 100%; margin-top: 20px">
+                    <div style="width: 50%; padding-right: 5%;">
+                        <t>Cliente</t>
+                        <hr width="100%" size="2" style="margin: 0;"/>
+                        <div>
+                            <strong>
+                                <span t-if="o.partner_id">
+                                    <strong>
+                                        <span t-field="o.partner_id"/>
+                                    </strong>
+                                </span>
+                            </strong>
+                        </div>
+                        <div>
+                            <strong t-if="o.partner_id.ref">
+                                <span t-field="o.partner_id.ref"/>
+                            </strong>
+                        </div>
+                        <span t-if="o.partner_id.vat">
+                            <span t-field="o.partner_id.vat"/>
+                        </span>
+                        <div>
+                            <span t-if="o.partner_id.street">
+                                <span t-field="o.partner_id.street"/>
+                            </span>
+                        </div>
+                        <div>
+                            <span t-if="o.partner_id.street">
+                                <span t-field="o.partner_id.street2"/>
+                            </span>
+                        </div>
+                        <div>
+                            <span t-if="o.partner_id.zip">
+                                <span t-field="o.partner_id.zip"/>
+                            </span>
+                            <span t-if="o.partner_id.city">
+                                <span t-field="o.partner_id.city"/>
+                            </span>
+                            <span t-if="o.partner_id.state_id">
+                                (<span t-field="o.partner_id.state_id.name"/>)
+                            </span>
+                        </div>
+                    </div>
+                    <div style="width: 50%; padding-left: 5%;">
+                        <div>
+                            <t t-set="invoice_count" t-value="env['account.move'].search_count([
+                            ('partner_id', '=', o.partner_id.id),
+                            ('move_type', '=', 'out_invoice'),
+                            ('id', '&lt;=', o.id)])"/>
+                            <strong>
+                                Certificación: <span t-field="o.x_numero_certifiacion"/>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Invoice Product details-->
+                <div style="padding-top:20px;width:100%">
+                    <t t-set="display_discount"
+                       t-value="any([l.discount for l in o.invoice_line_ids])"/>
+                    <!--Product Details-->
+                    <table class="table table-sm table-borderless">
+                        <tr style="background-color: #ed5326;">
+                            <th style="text-align: center; background-color: #ed5326; color: white;">
+                                Descripción
+                            </th>
+                            <th style="text-align: center; background-color: #ed5326; color: white;">
+                                Unidades
+                            </th>
+                            <th style="text-align: center; background-color: #ed5326; color: white;">
+                                Precio Unitario
+                            </th>
+                            <th style="text-align: center; background-color: #ed5326; color: white;">
+                                Precio
+                            </th>
+                        </tr>
+                        <tr t-foreach="o.invoice_line_ids" t-as="l">
+                            <td class="text-right"
+                                t-attf-style="color:#{o.theme_id.text_color};">
+                                <span t-field="l.product_id.name"/>
+                            </td>
+                            <td class="text-end"
+                                t-attf-style="color:#{o.theme_id.text_color};">
+                                <t t-if="l.x_total_unidades_entregadas">
+                                    <span t-field="l.x_total_unidades_entregadas"/>
+                                </t>
+                            </td>
+                            <td class="text-end"
+                                t-attf-style="color:#{o.theme_id.text_color};">
+                                <t t-if="l.price_unit">
+                                    <span t-field="l.price_unit"/>
+                                </t>
+                            </td>
+                            <td t-if="display_discount"
+                                class="text-end"
+                                t-attf-style="color:#{o.theme_id.text_color};">
+                                <span t-field="l.discount"/>
+                            </td>
+                            <td t-if="l.x_precio_total_unidades_entregadas"
+                                class="text-end"
+                                t-attf-style="color:#{o.theme_id.text_color};">
+                                <span t-field="l.x_precio_total_unidades_entregadas"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Detalles del pago -->
+                <div class="d-flex justify-content-between mb-1" style="width: 100%">
+                    <div style="width:50%;">
+                        <t>Observaciones / Instrucciones de pago:</t>
+                        <br/>
+                        <t t-if="o.company_id.partner_id.bank_ids" style="margin-top: 35px;"><strong>IBAN: <span
+                                t-field="o.company_id.partner_id.bank_ids[0].acc_number"/></strong></t>
+                    </div>
+                    <div style="width:50%;">
+                        <div>
+                            <!-- Calculo de la suma del precio de todos los productos ya entregados -->
+                            <t t-set="precio_total_entregado" t-value="0"/>
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
+                                <t t-set="precio_total_entregado"
+                                   t-value="precio_total_entregado + l.x_precio_total_unidades_entregadas"></t>
+                            </t>
+                            <!-- Subtotals -->
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="label-col" style="text-align: right;">
+                                    <strong style="text-align: right;">SUMA</strong>
+                                </div>
+                                <div class="amount-col"
+                                     style="width:50%; text-align: right; border-bottom: 1px solid #ddd;">
+                                    <span t-att-class="oe_subtotal_footer_separator"
+                                          t-esc="float(precio_total_entregado)"
+                                          t-options='{"widget": "float", "precision": 2}'/>
+                                </div>
+                            </div>
+                            <!--Total certificado-->
+                            <t t-set="total_certificado" t-value="0"/>
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
+                                <t t-set="total_certificado"
+                                   t-value="total_certificado + l.x_precio_unidades_certificadas"></t>
+                            </t>
+                            <!-- Certification anterior -->
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="label-col" style="text-align: right">
+                                    <strong style="text-align: right;">CERTIFICACIÓN ANTERIOR</strong>
+                                </div>
+                                <div class="amount-col"
+                                     style="text-align: right; border-bottom: 1px solid #ddd; width: 50%;">
+                                    <span t-esc="total_certificado"
+                                          t-options='{"widget": "float", "precision": 2}'/>
+                                </div>
+                            </div>
+                            <!-- Base imponible -->
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="label-col" style="text-align: right">
+                                    <strong style="text-align: right;">BASE IMPONIBLE</strong>
+                                </div>
+                                <div class="amount-col"
+                                     style="text-align: right; border-bottom: 1px solid #ddd; width: 50%;">
+                                    <span t-esc="float(precio_total_entregado - total_certificado)"
+                                          t-options='{"widget": "float", "precision": 2}'/>
+                                </div>
+                            </div>
+                            <!-- Retenciones -->
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="label-col" style="text-align: right">
+                                    <strong style="text-align: right;">RETENCIÓN 5%</strong>
+                                </div>
+                                <div class="amount-col"
+                                     style="width:50%; text-align: right; border-bottom: 1px solid #ddd; ">
+                                    <t t-set="payments_vals"
+                                       t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []"/>
+                                    <t t-set="tax_ratio"
+                                       t-value="o.amount_tax / o.amount_untaxed if o.amount_untaxed else 0"/>
+                                    <t t-set="paid_taxes"
+                                       t-value="sum(payment_vals['amount'] * tax_ratio / (1 + tax_ratio) for payment_vals in payments_vals)"/>
+                                    <t t-set="remaining_taxes" t-value="o.amount_tax - paid_taxes"/>
+                                    <span t-esc="abs(remaining_taxes)" t-options='{"widget": "float", "precision": 2}'/>
+                                </div>
+                            </div>
+                            <!-- Espacio entre retenciones y el total-->
+                            <div class="d-flex justify-content-between mb-1" style="height: 20px;">
+                                <div class="label-col" style="text-align: right">
+                                    <br/>
+                                </div>
+                                <div class="amount-col"
+                                     style="width:50%; text-align: right; border-bottom: 1px solid #ddd;">
+                                    <br/>
+                                </div>
+                            </div>
+                            <br/>
+                            <!-- Total factura -->
+                            <div class="d-flex justify-content-between mb-1" style="border-top: 2px solid #000000;">
+                                <div class="label-col" style="text-align: right">
+                                    <strong style="text-align: right;">TOTAL FACTURA</strong>
+                                </div>
+                                <div class="amount-col"
+                                     style="width:50%; text-align: right; border-bottom: 2px solid #000000; background-color: rgba(211,9,80,0.51)">
+                                    <strong>
+                                        <span t-esc="o.amount_residual"
+                                              t-options='{"widget": "float", "precision": 2}'/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pie de página -->
+                <div>
+                    <br/>
+                    <div style="font-size: 8px">
+                        <strong>
+                            <t>Supuesto de exención del sujeto pasivo en aplicación del
+                                artículo 84 Uno. 2ºletra f) de la ley 37/1992 del Impuesto sobre el Valor
+                                Añadido
+                            </t>
+                        </strong>
+                    </div>
+                    <div style="width: 100%; height: 20px; background-color: #ed5326; margin-top: 30px;"></div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
