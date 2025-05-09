@@ -1,56 +1,72 @@
-import pandas as pd
-import re
-import argparse
+import click
 
-parser = argparse.ArgumentParser("Utility to extract XML tags from an Excel file and save the results to a new Excel file.")
-parser.add_argument('-i', '--input_file', help='Path to the input Excel file to be modified.')
-parser.add_argument('-o', '--output_file', help='Save path to of the modified Excel file.')
-parser.add_argument('-m', '--modified_column', help='Save path to of the modified Excel file.')
-parser.add_argument('-c', '--columns', action='store_true', help='Print all the columns in the input file.')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s Version: 1.0')
-args = parser.parse_args()
-
-if not args.input_file:
-    parser.error("Input file path is required.")
-else:
-    try:
-        dataframe = pd.read_excel(args.input_file)
-    except Exception as e:
-        print(f"Error reading the input file: {e}")
-        exit(1)
-    if args.columns:
-        for column in dataframe.columns:
-            print(column)
-    elif args.modified_column and not args.output_file:
-        parser.error("Output file path is required.")
-    elif args.output_file and not args.modified_column:
-        parser.error("Modified column is required.")
-    elif args.modified_column and args.output_file:
-        columns = dataframe[args.modified_column]
-        # Regex pattern to match xml closing tags
-        pattern = r'\</(.*?)\>'
-
-        # Change to plain text
-        try:
-            for index, column in enumerate(columns):
-                # Ensure the column value is not null
-                if pd.notna(column):
-                    regex_results = re.findall(pattern, str(column))
-                    extracted_value = ''
-                    for result in regex_results:
-                        extracted_value = extracted_value + f'{result}: {column.split(f'<{result}>')[1].split(f'</{result}>')[0]} \n'
-
-                    dataframe.at[index, args.modified_column] = extracted_value
-                else :
-                    dataframe.at[index, args.modified_column] = '[Empty]'
-        except Exception as e:
-            print(f'Unexpected error processing excel file: {e}')
-
-        # Save contents to Excel file
-        dataframe.to_excel(args.output_file, index=False)
-
-        print("Excel file updated successfully.")
+from .service.excell_service import ExcelService
 
 
+@click.group()
+@click.version_option(version='1.0', prog_name='excel_xml_text_sanitizer.py')
+def cli():
+    """Herramienta de línea de comando para realizar diferentes operaciones."""
+    pass
 
 
+@cli.command(name="excel")
+@click.option('-i', '--input_file',
+              required=True,
+              type=click.Path(exists=True, dir_okay=False, readable=True),
+              help='Path to the input Excel file to be modified.')
+@click.option('-o', '--output_file',
+              type=click.Path(dir_okay=False, writable=True),
+              help='Save path of the modified Excel file.')
+@click.option('-ic', '--input_column',
+              help='Name of the column in the input file to process.')
+@click.option('-m', '--output_column',
+              help='Name of the column in the output file where results will be saved.')
+@click.option('-c', '--columns',
+              is_flag=True,
+              help='Print all the columns in the input file.')
+
+def excel(input_file, output_file, input_column, output_column, columns):
+    """Operaciones sobre archivos Excel."""
+    excel_service = ExcelService()
+
+    if columns:
+        click.echo(f"Listing columns for: {input_file}")
+        excel_service.list_columns(input_file)
+        return
+
+    is_processing_attempt = any([input_column, output_column, output_file])
+
+    if not is_processing_attempt and not columns:
+        raise click.UsageError(
+            "Se especificó --input-file, pero se requiere una operación adicional para 'excel': "
+            "--columns, o el conjunto completo de (--input-column, --output-column, --output-file)."
+        )
+
+    if is_processing_attempt:
+        all_processing_args_defined = all([
+            input_column,
+            output_column,
+            output_file
+        ])
+        if not all_processing_args_defined:
+            missing = []
+            if not input_column: missing.append("--input-column (-ic)")
+            if not output_column: missing.append("--output-column (-m)")
+            if not output_file: missing.append("--output-file (-o)")
+            raise click.UsageError(
+                "Para la operación de procesamiento de Excel, faltan los siguientes argumentos obligatorios: "
+                f"{', '.join(missing)}."
+            )
+        else:
+            click.echo(f"Processing file: {input_file}")
+            click.echo(f"Input column: {input_column}")
+            click.echo(f"Output column: {output_column}")
+            click.echo(f"Saving to: {output_file}")
+            # Placeholder for actual processing logic
+            excel_service.xml_fields_to_text(input_file, output_file, input_column, output_column)
+            return
+
+
+if __name__ == '__main__':
+    cli()

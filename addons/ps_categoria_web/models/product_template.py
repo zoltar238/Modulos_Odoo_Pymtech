@@ -9,12 +9,14 @@ class product_category(models.Model):
 
     @api.model
     def create_model(self):
-        categorias_productos = self.env['product.category'].search([])
+        categorias_productos_names = set(self.env['product.category'].search([]).mapped('name'))
         categorias_web = self.env['product.public.category'].search([])
 
         for categoria in categorias_web:
-            if categoria['name'] not in categorias_productos.mapped('name'):
-                _logger.info(f"no se ha encontrado la categoria {categoria['name']} en productos, procediendo a crearla")
+            if categoria.name not in categorias_productos_names:
+                _logger.info(f"no se ha encontrado la categoria {categoria.name} en productos, procediendo a crearla")
                 self.env['product.category'].create({
-                    'name': categoria['name'],
+                    'name': categoria.name,
                 })
+                # Optionally, add the newly created category name to the set if you need to check against it within the same loop execution
+                # categorias_productos_names.add(categoria.name)

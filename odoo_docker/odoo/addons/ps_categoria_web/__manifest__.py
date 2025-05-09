@@ -14,8 +14,9 @@
 
     'version': '0.1',
 
-    'depends': ['base', 'product', 'web'],
+    'depends': ['base', 'product', 'web', 'website_sale'],
 
     'data': [
+        'data/ir_cron_data.xml'
     ],
 }
