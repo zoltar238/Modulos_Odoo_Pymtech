@@ -1,0 +1,283 @@
+2025-05-06 11:52:59,836 1 INFO ? odoo: Odoo version 18.0-20250428 
+2025-05-06 11:52:59,836 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2025-05-06 11:52:59,836 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/home/ubuntu/.local/share/Odoo/addons/18.0', '/mnt/extra-addons'] 
+2025-05-06 11:52:59,836 1 INFO ? odoo: database: odoo@db:5432 
+2025-05-06 11:52:59,950 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-05-06 11:52:59,958 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-05-06 11:53:00,086 1 INFO ? odoo.service.server: Watching addons folder /usr/lib/python3/dist-packages/odoo/addons 
+2025-05-06 11:53:00,086 1 INFO ? odoo.service.server: Watching addons folder /home/ubuntu/.local/share/Odoo/addons/18.0 
+2025-05-06 11:53:00,086 1 INFO ? odoo.service.server: Watching addons folder /mnt/extra-addons 
+2025-05-06 11:53:00,495 1 INFO ? odoo.service.server: AutoReload watcher running with watchdog 
+2025-05-06 11:53:00,510 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 3ed0f8aed2f7:8069 
+2025-05-06 11:53:38,205 1 INFO ? odoo.modules.loading: loading 1 modules... 
+2025-05-06 11:53:38,210 1 INFO ? odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-05-06 11:53:38,215 1 INFO ? odoo.modules.loading: loading 73 modules... 
+2025-05-06 11:53:38,766 1 INFO ? odoo.modules.loading: 73 modules loaded in 0.55s, 0 queries (+0 extra) 
+2025-05-06 11:53:38,881 1 INFO ? odoo.modules.loading: Modules loaded. 
+2025-05-06 11:53:38,884 1 INFO ? odoo.modules.registry: Registry loaded in 0.691s 
+2025-05-06 11:53:38,885 1 INFO master odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-05-06 11:53:38,953 1 INFO master odoo.http: Session expired 
+2025-05-06 11:53:38,953 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:38] "POST /web/action/load HTTP/1.1" 200 - 17 0.009 0.964
+2025-05-06 11:53:41,501 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:41] "GET /odoo/discuss HTTP/1.1" 303 - 8 0.006 0.016
+2025-05-06 11:53:42,000 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:42] "GET /web/login?redirect=/odoo/discuss? HTTP/1.1" 200 - 63 0.014 0.483
+2025-05-06 11:53:42,782 1 INFO master odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/12f465d/web.assets_frontend.min.css (id:485) 
+2025-05-06 11:53:42,783 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:42] "GET /web/service-worker.js HTTP/1.1" 200 - 6 0.017 0.049
+2025-05-06 11:53:42,788 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:42] "GET /web/assets/12f465d/web.assets_frontend.min.css HTTP/1.1" 200 - 16 0.016 0.748
+2025-05-06 11:53:42,813 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:42] "GET /web/binary/company_logo HTTP/1.1" 200 - 6 0.003 0.019
+2025-05-06 11:53:42,826 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:42] "GET /odoo/offline HTTP/1.1" 200 - 14 0.007 0.021
+2025-05-06 11:53:43,208 1 INFO master odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d48406a/web.assets_frontend_lazy.min.js (id:486) 
+2025-05-06 11:53:43,213 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:43] "GET /web/assets/d48406a/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 13 0.005 0.381
+2025-05-06 11:53:43,355 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:43] "GET /website/translations/bebdf64aa91bf1d914972d4a4c83c1e55be16a7c HTTP/1.1" 200 - 10 0.003 0.026
+2025-05-06 11:53:44,606 1 INFO master odoo.addons.base.models.res_users: Login successful for db:master login:master@gmail.com from 172.19.0.1 
+2025-05-06 11:53:44,612 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:44] "POST /web/login HTTP/1.1" 303 - 41 0.013 0.482
+2025-05-06 11:53:44,616 1 INFO master odoo.addons.base.models.res_device: User 2 inserts device log (sKXxV80ufFUTraa0zgB4YGI7BnEfQUZNo6-Ua6zJng) 
+2025-05-06 11:53:44,644 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/67/670e9ff9033932ebe066245e9ac5c3382cde45f4 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/67/670e9ff9033932ebe066245e9ac5c3382cde45f4'
+2025-05-06 11:53:44,645 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/1c/1c16002d10f6155661a6ae83417fee29e281fb7b 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/1c/1c16002d10f6155661a6ae83417fee29e281fb7b'
+2025-05-06 11:53:44,646 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/f3/f31bdf173e5748b875ca5e389e1edba54b4bff25 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/f3/f31bdf173e5748b875ca5e389e1edba54b4bff25'
+2025-05-06 11:53:44,646 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/5e/5e1a46f3ba53e2d6329ba3c74fa21b8acd8fd6c7 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/5e/5e1a46f3ba53e2d6329ba3c74fa21b8acd8fd6c7'
+2025-05-06 11:53:44,646 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/74/744fc247b813c44f4cf02357706e88b283cb0f97 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/74/744fc247b813c44f4cf02357706e88b283cb0f97'
+2025-05-06 11:53:44,647 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/3d/3d7a7360fe4a73a90dd3b4ba554a9254ed61e864 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/3d/3d7a7360fe4a73a90dd3b4ba554a9254ed61e864'
+2025-05-06 11:53:44,647 1 INFO master odoo.addons.base.models.ir_attachment: _read_file reading /home/ubuntu/.local/share/Odoo/filestore/master/b7/b73a9deb85def8a1a00e4d545c4f79747d78f487 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.ui.menu', <function IrUiMenu.load_menus at 0x7aa6b73677e0>, 2, '', ('es_ES',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/b7/b73a9deb85def8a1a00e4d545c4f79747d78f487'
+2025-05-06 11:53:45,996 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:45] "GET /odoo/discuss HTTP/1.1" 200 - 87 0.020 1.362
+2025-05-06 11:53:46,051 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "GET /web/webclient/load_menus/9c70f7c74382ad2ff051989cc462ceb1ec29b7339c92485a46aab0da09b9d845 HTTP/1.1" 200 - 66 0.010 0.020
+2025-05-06 11:53:46,422 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 8 0.004 0.022
+2025-05-06 11:53:46,422 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "POST /web/action/load HTTP/1.1" 200 - 7 0.005 0.019
+2025-05-06 11:53:46,426 1 ERROR master odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 2373, in __call__
+    response = request._serve_db()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1900, in _serve_db
+    return self._transactioning(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1963, in _transactioning
+    return service_model.retrying(func, env=self.env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 156, in retrying
+    result = func()
+             ^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1930, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 2091, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
+    result = endpoint(**request.params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 727, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 64, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(bundle.js())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 127, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 74, in _record_to_stream
+    return record._to_http_stream()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 797, in _to_http_stream
+    stat = os.stat(stream.path)
+           ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/1d/1d2e3399968f850385bfc0f16fca94d05d78e482'
+2025-05-06 11:53:46,428 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "GET /bus/websocket_worker_bundle?v=18.0-4 HTTP/1.1" 500 - 4 0.002 0.022
+2025-05-06 11:53:46,440 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "POST /mail/data HTTP/1.1" 200 - 27 0.010 0.026
+2025-05-06 11:53:46,474 1 ERROR master odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 2373, in __call__
+    response = request._serve_db()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1900, in _serve_db
+    return self._transactioning(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1963, in _transactioning
+    return service_model.retrying(func, env=self.env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/service/model.py", line 156, in retrying
+    result = func()
+             ^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1930, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 2091, in dispatch
+    return self.request.registry['ir.http']._dispatch(endpoint)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_http.py", line 333, in _dispatch
+    result = endpoint(**request.params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 727, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/bus/controllers/websocket.py", line 64, in get_websocket_worker_bundle
+    stream = request.env['ir.binary']._get_stream_from(bundle.js())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 127, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_binary.py", line 74, in _record_to_stream
+    return record._to_http_stream()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_attachment.py", line 797, in _to_http_stream
+    stat = os.stat(stream.path)
+           ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.local/share/Odoo/filestore/master/1d/1d2e3399968f850385bfc0f16fca94d05d78e482'
+2025-05-06 11:53:46,477 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "GET /bus/websocket_worker_bundle?v=18.0-4 HTTP/1.1" 500 - 3 0.001 0.005
+2025-05-06 11:53:46,501 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "POST /mail/data HTTP/1.1" 200 - 40 0.011 0.017
+2025-05-06 11:53:46,557 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:46] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.002 0.003
+2025-05-06 11:53:47,002 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:47] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.000 0.002
+2025-05-06 11:53:47,021 1 INFO master werkzeug: 172.19.0.1 - - [06/May/2025 11:53:47] "GET /odoo/offline HTTP/1.1" 200 - 2 0.001 0.002

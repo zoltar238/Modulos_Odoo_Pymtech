@@ -1,0 +1,17 @@
+.vscode
+# Python byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore ner models
+odoo/addons/adb_ner/static/ner*
+!odoo/addons/adb_ner/static/ner/
+
+.idea/
+
+# Backups and sql dump files
+*.sql
+*.tgz
+*.tar.gz
+*.zip

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--BOXED Layout-->
+    <!--Inherited the boxed external layout for changing company address position-->
+    <template id="custom_external_layout_striped"
+              inherit_id="web.external_layout_striped">
+<!--        <xpath expr="//div[contains(@t-attf-class, 'o_company_#{company.id}_layout header')]" position="replace">-->
+        <xpath expr="//div[hasclass('d-flex')]" position="replace">
+            <!-- Linea naranja al inicio -->
+            <div style="width: 100%; height: 20px; background-color: #ed5326;"></div>
+
+            <!-- Logo -->
+            <div class="d-flex justify-content-between mb-1" style="width: 100%; background-color: rgba(208,208,208,0.37); margin-top: 7px;">
+                <div t-if="company.logo"
+                     style="width: 30%; background-color: rgba(208,208,208,0.37);"
+                     t-attf-class="{{'ms-auto' if company.document_layout_id.logo_position == 'right' else 'd-flex justify-content-start'}}">
+                    <div class="d-flex justify-content-end" style="background-color: rgba(208,208,208,0.37);">
+                        <img t-att-src="image_data_uri(company.logo)"
+                             style="width:100%;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+
+                <!-- Datos de la empresa -->
+                <div style="width: 70%" class="d-flex justify-content-between mb-1">
+                    <ul style="list-style-type: none; padding-top: 10px">
+                        <li style="font-size: 25px;"><strong>ROZAS Y TAPADOS ALBA S.L.</strong></li>
+                        <li>Ayudas Albañilería, Taladros y Cortes en Hormigón</li>
+                        <li>B83938373</li>
+                        <li>C/Los Alpes 14, Local 2</li>
+                        <li>28922 Alcorcón (Madrid)</li>
+                        <li>Tlf 680 418 402/ 629 099 089</li>
+                        <li>info@rozasytapadosalba.es</li>
+                    </ul>
+                    <!-- Lista derecha - Datos de la factura -->
+                    <ul style="list-style-type: none; text-align: center; padding-top: 20px; margin-right: 5px;">
+                        <li style="font-size: 30px; color: #7A7979;">Factura</li>
+                        <!-- Fecha de la factura -->
+                        <li style="margin-top: 10px; color: #00284b">Fecha</li>
+                        <li><hr style="border: 0; height: 1px; background-color: #252525; margin: 0;"/></li>
+                        <li t-if="o and o.invoice_date" style="margin-top: 0;"><t t-esc="o.invoice_date"
+                                                                                  t-options='{"widget": "date"}'/></li>
+                        <!-- Número de factura -->
+                        <li style="margin-top: 5px; color: #00284b">Nº de factura</li>
+                        <li><hr style="border: 0; height: 1px; background-color: #252525; margin: 0;"/></li>
+                        <li t-if="o and o.name" style="margin-top: 0;"><t t-esc="o.name"/></li>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
