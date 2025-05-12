@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
-
-        <!--        <xpath expr="//div[hasclass('clearfix')][hasclass('invoice_main')]" position="attributes">-->
-        <!--            <attribute name="style">padding: 12px;</attribute>-->
-        <!--        </xpath>-->
-    </template>
-</odoo>
