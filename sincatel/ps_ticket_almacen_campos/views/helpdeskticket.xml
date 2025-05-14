@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_helpdesk_ticket_form_inherit_warehouse" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form.inherit.warehouse</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='channel_id']" position="after">
+                    <field name="x_warehouse"/>
+                </xpath>
+                <xpath expr="//field[@name='sequence']" position="after">
+                    <field name="x_support_user1"/>
+                    <field name="x_support_user2"/>
+                    <field name="x_support_user3"/>
+                </xpath>
+                <xpath expr="//form/header" position="inside">
+                    <field name="x_visibility_tick_empezar" invisible="1"/>
+                    <field name="x_visibility_tick_salida" invisible="1"/>
+                    <button name="action_empezar_actuacion" type="object" class="oe_highlight"
+                        string="Empezar Actuación" icon="fa-ticket"
+                        invisible="x_visibility_tick_empezar == False"/>
+                    <button name="action_salida_actuacion" type="object" class="oe_highlight"
+                        string="Salida Actuación" icon="fa-sign-out"
+                        invisible="x_visibility_tick_salida == False"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_helpdesk_ticket_form_inherit_actuacion" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form.inherit.actuacion</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="project_task_custom_fields.view_task_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='estado']" position="after">
+                    <field name="x_visibility_firma" invisible="1"/>
+                    <field name="latitude" invisible="1"/>
+                    <field name="longitude" invisible="1"/>
+                    <field name="x_firma_cliente" widget="signature"
+                        invisible="x_visibility_firma == False"/>
+                    
+                    <div id="leaflet_map" style="height:300px; margin-top: 10px;"></div>
+                </xpath>
+                <xpath expr="//field[@name='solucion_definitiva']" position="after">
+                    
+                        <field name="audio_file" filename="audio_filename"/>
+                        <button name="transcribe_audio"
+                                string="Transcribir"    
+                                type="object"
+                                class="btn-primary"/>
+                        <field name="transcription_text"/>
+
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_helpdesk_ticket_tree_inherit_warehouse" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.tree.inherit.warehouse</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="x_warehouse" optional="show"/>
+                    <field name="x_support_user1" optional="hide"/>
+                    <field name="x_support_user2" optional="hide"/>
+                    <field name="x_support_user3" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
